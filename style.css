@@ -31,6 +31,10 @@ body {
 
 }
 
+.hidden {
+    width: 0px;
+}
+
 .car-img {
-    height: 60px;
+    height: 150px;
 }
