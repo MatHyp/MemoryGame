@@ -20,7 +20,7 @@ body {
     width: 80vw;
     flex-wrap: wrap;
     justify-content: center;
-
+    margin: 0 auto;
 }
 
 .board {
