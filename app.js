@@ -1,10 +1,17 @@
-const $ = (e) => document.querySelector(e);
 //GetElements
+const $ = (e) => document.querySelector(e);
+// Containers
 const boardContainer = $('.board-container');
-const startBtn = $('.start-game');
-const moveCounter = $('.moves-counter');
-const matchedPairs = $('.matched-pairs')
 const body = $('body');
+const pop_up = $('.pop-up');
+
+// Buttons
+const startBtn = $('.start-game');
+const matchedPairs = $('.matched-pairs')
+// Spans
+const againBtn = $('.again');
+const pop_up_fail = $('.moves-counter-fails')
+const moveCounter = $('.moves-counter');
 
 let carList = ['bmw','audi','hyundai','alfa','honda','vw','fiat','mercedes','opel','volvo','bmw','audi','hyundai','alfa','honda','vw','fiat','mercedes','opel','volvo'];
 //Game variables
@@ -19,8 +26,7 @@ let matchedPair = 0;
 const createCards = function(){
     // sort and clear bordercontainer
     let sortedCardList = carList.sort(() => Math.random() - 0.5)
-    boardContainer.textContent = '';
-
+    restartGame();
     // for each el from list create crat
     sortedCardList.forEach(car => {
         let cartHtml = `<div class="board " id="halo">
@@ -28,8 +34,7 @@ const createCards = function(){
         </div>`
         boardContainer.insertAdjacentHTML('afterbegin', cartHtml);    
     });
-
-    setTimeout(() => {hiddenForAll(boardContainer)}, 6000);
+    setTimeout(() => {hiddenForAll(boardContainer)}, 2000);
 }
 
 // Add hidden class for all carts after start
@@ -56,20 +61,22 @@ const missedClicks = function(){
 const matched = function(){
     matchedPair++;
     matchedPairs.innerHTML = String(matchedPair)
-
+    
     if (matchedPair == 10){
-        endPopUp();
+        pop_up_fail.innerHTML = String(failMoves);
+        pop_up.classList.remove('hidden');
     }
 }
 
 const haloo = function(){
     if(matchedPair == 1){
         return false
+        
     }
     return true;
 }
-// Event for card click
 
+// Event for card click
 document.addEventListener('click',function(e){ 
     if(e.target && e.target.id == 'halo'){
         e.target.children[0].classList.remove('hidden');
@@ -80,7 +87,7 @@ document.addEventListener('click',function(e){
                 break;
             case 1:
                 secoundClick = e.target.children[0];
-                let equal = (firstClick.id == secoundClick.id) ? matched() : missedClicks();;
+                let equal = (firstClick.id == secoundClick.id) ? matched() : missedClicks();
                 click = 0;
                 break;
         }
@@ -88,15 +95,14 @@ document.addEventListener('click',function(e){
     }
 }, haloo());
 
-const endPopUp = function(){
-    const popup = `
-        <div class="child">
-            <h1>You win</h1>
-            <p>Your time: 14s</p>
-            <p>Fail Moves: ${failMoves}</p>
-            <button>Play again</button>
-        </div>`
-    body.insertAdjacentHTML('afterbegin' , popup);
+const restartGame = function(){
+    pop_up.classList.add('hidden');
+    boardContainer.textContent = '';
+    matchedPair = 0;
+    click = 0;
+    failMoves = 0;
+    matchedPair = 0;
 }
 
 startBtn.addEventListener('click', createCards);
+againBtn.addEventListener('click', createCards);
