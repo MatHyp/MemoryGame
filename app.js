@@ -10,16 +10,19 @@ const startBtn = $('.start-game-btn');
 const matchedPairs = $('.matched-pairs')
 // Spans
 const againBtn = $('.again');
+const time = $('.time-conuter')
 const pop_up_fail = $('.moves-counter-fails')
 const moveCounter = $('.moves-counter');
 
-let carList = ['bmw','audi','hyundai','alfa','honda','vw','fiat','mercedes','opel','volvo','bmw','audi','hyundai','alfa','honda','vw','fiat','mercedes','opel','volvo'];
+let carList = ['bmw','audi','alfa','honda','vw','fiat','mercedes','volvo','bmw','audi','alfa','honda','vw','fiat','mercedes','volvo'];
+
 //Game variables
 let firstClick;
 let secoundClick;
 let click = 0;
 let failMoves = 0;
 let matchedPair = 0;
+let timer = 0;
 
 //Create cards html
 
@@ -27,14 +30,20 @@ const createCards = function(){
     // sort and clear bordercontainer
     let sortedCardList = carList.sort(() => Math.random() - 0.5)
     restartGame();
+    boardContainer.textContent = '';
     // for each el from list create crat
     sortedCardList.forEach(car => {
         let cartHtml = `<div class="board " id="halo">
             <img src="img/${car}.png" alt="" class="car-img " id=${car} id="halo">
         </div>`
-        boardContainer.insertAdjacentHTML('afterbegin', cartHtml);    
+        boardContainer.insertAdjacentHTML('afterbegin', cartHtml);  
     });
     setTimeout(() => {hiddenForAll(boardContainer)}, 6000);
+    setInterval(() => {
+        timer++
+        time.innerHTML = timer
+        console.log(timer);
+    }, 1000)  
 }
 
 // Add hidden class for all carts after start
