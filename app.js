@@ -6,7 +6,7 @@ const body = $('body');
 const pop_up = $('.pop-up');
 
 // Buttons
-const startBtn = $('.start-game');
+const startBtn = $('.start-game-btn');
 const matchedPairs = $('.matched-pairs')
 // Spans
 const againBtn = $('.again');
@@ -34,7 +34,7 @@ const createCards = function(){
         </div>`
         boardContainer.insertAdjacentHTML('afterbegin', cartHtml);    
     });
-    setTimeout(() => {hiddenForAll(boardContainer)}, 2000);
+    setTimeout(() => {hiddenForAll(boardContainer)}, 6000);
 }
 
 // Add hidden class for all carts after start
@@ -102,6 +102,8 @@ const restartGame = function(){
     click = 0;
     failMoves = 0;
     matchedPair = 0;
+    matchedPairs.innerHTML = String(matchedPair)
+    moveCounter.innerHTML = String(failMoves);
 }
 
 startBtn.addEventListener('click', createCards);

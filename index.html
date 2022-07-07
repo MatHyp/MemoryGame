@@ -10,15 +10,48 @@
 </head>
 <body>
     <div class="bgc">
+        <div class="title">
+            <h1>Memory Game</h1>
+            <p><strong>Test your Memory:</strong> Match the pairs as quickly as possible, in as few moves as possible</p>
+        </div>
         <div class="game">
-            <div class="controls">
-                <button class="start-game">Start</button>
-                <p class="moves">Fail moves :<span class="moves-counter">0</span></p>
-                <p class="matched">Matched Pairs: <span class="matched-pairs">0</span> </p>
-                <p class="time">time: 0 sec</p>
-            </div>
             <div class="board-container">
+                <div class="board " id="halo">  </div>
+                <div class="board " id="halo">  </div>
+                <div class="board " id="halo">  </div>
+                <div class="board " id="halo">  </div>
+                <div class="board " id="halo">  </div>
+                <div class="board " id="halo">  </div>
+                <div class="board " id="halo">  </div>
+                <div class="board " id="halo">  </div>
+                <div class="board " id="halo">  </div>
+                <div class="board " id="halo">  </div>
+                <div class="board " id="halo">  </div>
+                <div class="board " id="halo">  </div>
+                <div class="board " id="halo">  </div>
+                <div class="board " id="halo">  </div>
+                <div class="board " id="halo">  </div>
+            </div>
 
+            <div class="controls">  
+                <div class="score-container">
+                    <div class="score-box">
+                        <p class="score-title">Timer</p>
+                        <p class="matched"><span class="time-conuter">0</span></p>
+                    </div>
+                    <div class="score-box">
+                        <p class="score-title">Moves</p>
+                        <p class="matched"><span class="moves-counter">0</span></p>
+                    </div>
+                    <div class="score-box">
+                        <p class="score-title">Score</p>
+                        <p class="matched"><span class="matched-pairs">0</span></p>
+                    </div>
+                </div>
+                <div class="btns-container">
+                    <button class="start-game-btn green">Start Game</button>
+                    <button class="start-game-btn red">End Game</button>
+                </div>
             </div>
         </div>
     </div>

@@ -2,21 +2,31 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'jokerman', cursive;
 }
 
 body {
     position: relative;
     padding: 1rem;
     min-height: 100vh;
-    border: 1rem solid;
-    background: #926ea9;
+    background-color: skyblue;
     color: wheat;
     text-align: center;
 }
 
+.title h1 {
+    font-size: 30px;
+    color: White;
+}
+
+.title p {
+    margin: 10px 0;
+    color: black;
+}
+
 .board-container {
     display: flex;
-    width: 80vw;
+    width: 60vw;
     flex-wrap: wrap;
     justify-content: center;
     margin: 0 auto;
@@ -24,10 +34,9 @@ body {
 
 .board {
     margin: 5px;
-    width: 320px;
-    height: 150px;
+    width: 200px;
+    height: 100px;
     background: #282A3A;
-
 }
 
 .hidden {
@@ -36,7 +45,7 @@ body {
 }
 
 .car-img {
-    height: 150px;
+    height: 100px;
 }
 
 .pop-up {
@@ -47,4 +56,57 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.start-game-btn {
+    width: 24.5vw;
+    height: 40px;
+    border: none;
+    border-radius: 2px;
+    font-size: 20px;
+    color: white;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    margin: 0 auto;
+}
+
+.score-box {
+    color: white;
+    font-size: 20px;
+}
+
+.matched {
+    width: 16vw;
+    height: 40px;
+    background-color: #fff;
+    border: 2px solid black;
+    border-radius: 6px;
+}
+
+.btns-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.score-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}
+
+
+.matched {
+    color: black;
 }
